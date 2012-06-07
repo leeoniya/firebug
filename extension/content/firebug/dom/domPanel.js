@@ -569,7 +569,7 @@ Firebug.DOMBasePanel.prototype = Obj.extend(Firebug.Panel,
                 FBTrace.sysout("dom.getMembers FAILS: ", exc);
         }
 
-        function sortName(a, b) { return a.name > b.name ? 1 : -1; }
+        function sortName(a, b) { return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1; }
         function sortOrdinal(a, b) { return parseInt(a.name) > parseInt(b.name) ? 1 : -1; }
 
         var members = [];
