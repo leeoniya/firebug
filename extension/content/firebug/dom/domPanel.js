@@ -450,7 +450,7 @@ Firebug.DOMBasePanel.prototype = Obj.extend(Firebug.Panel,
                 var contentView = this.getObjectView(object);
                 var properties = this.getObjectProperties(contentView,
                     Firebug.showEnumerableProperties, Firebug.showOwnProperties);
-                properties = Arr.sortUnique(properties);
+                properties = Arr.unique(properties);
 
                 if (contentView.hasOwnProperty("constructor") &&
                     properties.indexOf("constructor") == -1)
