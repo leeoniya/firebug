@@ -62,9 +62,17 @@ const prefNames =  // XXXjjb TODO distribute to modules
     "decompileEvals", "replaceTabs", "maxScriptLineLength",
 
     // DOM
-    "showUserProps", "showUserFuncs", "showDOMProps", "showDOMFuncs", "showDOMConstants",
-    "ObjectShortIteratorMax", "showEnumerableProperties", "showOwnProperties",
+    "showUserProps",
+    "showUserFuncs",
+    "showDOMProps",
+    "showDOMFuncs",
+    "showDOMConstants",
     "showInlineEventHandlers",
+    "sortUserDefined",
+    "sortDOMDefined",
+    "showOwnProperties",
+    "showEnumerableProperties",
+    "ObjectShortIteratorMax",
 
     // Layout
     "showRulers",

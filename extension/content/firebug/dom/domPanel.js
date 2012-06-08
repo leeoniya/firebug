@@ -579,40 +579,56 @@ Firebug.DOMBasePanel.prototype = Obj.extend(Firebug.Panel,
 
         if (Firebug.showUserProps)
         {
-            userProps.sort(sortName);
+            if (Firebug.sortUserDefined)
+                userProps.sort(sortName);
+
             members.push.apply(members, userProps);
         }
 
         if (Firebug.showUserFuncs)
         {
-            userClasses.sort(sortName);
-            members.push.apply(members, userClasses);
+            if (Firebug.sortUserDefined)
+                userClasses.sort(sortName);
 
-            userFuncs.sort(sortName);
+            members.push.apply(members, userClasses);
+            
+            if (Firebug.sortUserDefined)
+                userFuncs.sort(sortName);
+
             members.push.apply(members, userFuncs);
         }
 
         if (Firebug.showDOMProps)
         {
-            domProps.sort(sortName);
+            if (Firebug.sortDOMDefined)
+                domProps.sort(sortName);
+
             members.push.apply(members, domProps);
         }
 
         if (Firebug.showDOMFuncs)
         {
-            domFuncs.sort(sortName);
+            if (Firebug.sortDOMDefined)
+                domFuncs.sort(sortName);
+
             members.push.apply(members, domFuncs);
         }
 
         if (Firebug.showDOMConstants)
-            members.push.apply(members, domConstants);
+        {
+            if (Firebug.sortDOMDefined)
+                domConstants.sort(sortName);
 
+            members.push.apply(members, domConstants);
+        }
+        
         // The prototype is always displayed at the end.
         members.push.apply(members, proto);
 
         if (Firebug.showInlineEventHandlers)
         {
             domHandlers.sort(sortName);
+
             members.push.apply(members, domHandlers);
         }
 
@@ -1463,6 +1479,8 @@ Firebug.DOMBasePanel.prototype = Obj.extend(Firebug.Panel,
             "showDOMFuncs",
             "showDOMConstants",
             "showInlineEventHandlers",
+            "sortUserDefined",
+            "sortDOMDefined",
             "showOwnProperties",
             "showEnumerableProperties"
         ];
@@ -1487,6 +1505,11 @@ Firebug.DOMBasePanel.prototype = Obj.extend(Firebug.Panel,
                 "dom.option.tip.Show_DOM_Constants"),
             Menu.optionMenu("ShowInlineEventHandlers", "showInlineEventHandlers",
                 "ShowInlineEventHandlersTooltip"),
+            "-",
+            Menu.optionMenu("SortUserDefined", "sortUserDefined",
+                "dom.option.tip.Sort_User_Defined"),
+            Menu.optionMenu("SortDOMDefined", "sortDOMDefined",
+                "dom.option.tip.Sort_DOM_Defined"),
             "-",
             Menu.optionMenu("ShowOwnProperties", "showOwnProperties",
                 "ShowOwnPropertiesTooltip"),

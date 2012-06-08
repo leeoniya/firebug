@@ -102,6 +102,8 @@ pref("extensions.firebug.showDOMProps", true);
 pref("extensions.firebug.showDOMFuncs", false);
 pref("extensions.firebug.showDOMConstants", false);
 pref("extensions.firebug.showInlineEventHandlers", false);
+pref("extensions.firebug.sortUserDefined", false);
+pref("extensions.firebug.sortDOMDefined", true);
 pref("extensions.firebug.showOwnProperties", false);
 pref("extensions.firebug.showEnumerableProperties", true);
 pref("extensions.firebug.ObjectShortIteratorMax", 3);
